@@ -1,0 +1,10 @@
+# Datasets / exports comprimidos
+*.zip
+
+# Pesos de modelos (se publican en Releases)
+*.pt
+*.pth
+*.onnx
+
+# Salidas de entrenamiento de YOLO
+runs/

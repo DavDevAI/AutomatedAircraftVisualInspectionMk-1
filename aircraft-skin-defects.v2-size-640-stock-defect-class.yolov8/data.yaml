@@ -1,0 +1,14 @@
+path: ../drive/MyDrive/Datasets/AircraftSkinDefects
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 1
+names: ['defect']
+
+roboflow:
+  workspace: thesis-project-equzz
+  project: aircraft-skin-defects
+  version: 2
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/thesis-project-equzz/aircraft-skin-defects/dataset/2
