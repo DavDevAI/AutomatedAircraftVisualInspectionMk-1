@@ -7,7 +7,7 @@ from ultralytics import YOLO
 yolo_model = YOLO("Weights/best.pt")
 
 # Define las etiquetas de clases (ajusta según data.yaml de Roboflow)
-class_labels = ['dent', 'scratch', 'crack', 'corrosion']  # Ejemplo; verifica en data.yaml
+#class_labels = ['dent', 'scratch', 'crack', 'corrosion']  # Ejemplo; verifica en data.yaml
 #para configurar junto con el data.yaml para los umbrales y tolerancias y definir con mejor inteligencia que tipo de defecto es 
 #si es scratch crack or corrosion
 
@@ -17,7 +17,8 @@ class_labels = ['dent', 'scratch', 'crack', 'corrosion']  # Ejemplo; verifica en
 
 
 # Carga la imagen
-image_path = "Media/Flush/pos1.jpg"
+#image_path = "Media/Flush/pos1.jpg" #nada prueba real con pitot de CRJ
+image_path = "Media/Defects/defect_9.jpg"
 img = cv2.imread(image_path)
 
 # Realiza la detección
@@ -35,9 +36,11 @@ for r in results:
         cls = int(box.cls[0])
 
         if conf > 0.35:  # Umbral de confianza
-            cvzone.cornerRect(img, (x1, y1, w, h), t=2)
-            cvzone.putTextRect(img, f'{class_labels[cls]} {conf}', (x1, y1 - 10),
-                               scale=0.8, thickness=1, colorR=(255, 0, 0)) #CHECAR DIMENSIONES DE THICKNESS Y PROFUNDIDADES
+            cvzone.cornerRect(img, (x1, y1, w, h), t=2)            
+            cvzone.putTextRect(img, f'{yolo_model.names[cls]} {conf}', (x1, y1 - 10),
+                   scale=0.8, thickness=1, colorR=(255, 0, 0))
+            # cvzone.putTextRect(img, f'{class_labels[cls]} {conf}', (x1, y1 - 10),
+            #                    scale=0.8, thickness=1, colorR=(255, 0, 0)) #CHECAR DIMENSIONES DE THICKNESS Y PROFUNDIDADES
 #IGYUAL AÑADIR LOGICA QUE DE SI NO ES UN GO
 
 
@@ -48,3 +51,6 @@ while True:
         break
 cv2.destroyAllWindows()
 cv2.waitKey(1)
+
+
+
