@@ -1,4 +1,4 @@
-# Proyecto de Inspección Visual Automatizada de Aeronaves
+# Deprecated Proyecto de Inspección Visual Automatizada de Aeronaves
 
 ## Introducción
 La inspección visual automatizada de aeronaves es un área clave en el mantenimiento predictivo aeronáutico, ya que permite detectar defectos como abolladuras, grietas o corrosión de manera eficiente, reduciendo errores humanos y costos operativos. Este informe detalla datasets públicos y proyectos relevantes para desarrollar un proyecto de fin de materia basado en redes neuronales convolucionales (CNN), utilizando tus conocimientos en OpenCV y librerías como Keras y TensorFlow. El objetivo es proponer un proyecto acotado, implementable en un entorno de escritorio (Jupyter o VS Code), y que sea completable en un plazo razonable, similar a un proyecto full-stack en programación web.
